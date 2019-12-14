@@ -9,11 +9,14 @@
                     {epoch: 500,
                      callbacks:{
                          onEpochEnd: async(epoch, logs) => {
-                            console.log("Epoch:" + epoch + " Loss:" + logs.loss);
+                            console.log("where is the Epoch:" 
+                                        + epoch 
+                                        + " Loss:" 
+                                        + logs.loss);
                          }
                      }
-                    })
-    };
+                    });
+    }
     
      
     const model = tf.sequential();

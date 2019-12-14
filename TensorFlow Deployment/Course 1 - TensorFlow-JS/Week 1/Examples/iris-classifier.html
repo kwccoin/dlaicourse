@@ -44,10 +44,10 @@
             const testVal = tf.tensor2d([4.4, 2.9, 1.4, 0.2], [1, 4]);
             
             // Versicolor
-            const testVal = tf.tensor2d([6.4, 3.2, 4.5, 1.5], [1, 4]);
+            // const testVal = tf.tensor2d([6.4, 3.2, 4.5, 1.5], [1, 4]);
             
             // Virginica
-            const testVal = tf.tensor2d([5.8,2.7,5.1,1.9], [1, 4]);
+            // const testVal = tf.tensor2d([5.8,2.7,5.1,1.9], [1, 4]);
             
             const prediction = model.predict(testVal);
             const pIndex = tf.argMax(prediction, axis=1).dataSync();

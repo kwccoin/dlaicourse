@@ -56,12 +56,68 @@
                   }
               }
             });
-                 
+        
+    // Test Cases:
 
-    const testVal = tf.tensor2d([5.8, 2.7, 5.1, 1.9], [1, 4]);
-    const prediction = model.predict(testVal)
+    // Setosa
+    // const testVal = tf.tensor2d([4.4, 2.9, 1.4, 0.2], [1, 4]);
+
+    // Versicolor
+    // const testVal = tf.tensor2d([6.4, 3.2, 4.5, 1.5], [1, 4]);
+
+    // Virginica
+    // const testVal = tf.tensor2d([5.8,2.7,5.1,1.9], [1, 4]);
+
+   
+    console.log("testVal is Setosa...")     
+        
+    // Setosa
+    // const testVal = tf.tensor2d([4.4, 2.9, 1.4, 0.2], [1, 4]);
+        
+    //const  <-- not using const to try do it two times 
+        
+    const testVal1 = tf.tensor2d([4.4, 2.9, 1.4, 0.2], [1, 4]);
+       
+    //const <-- not using const to try do it two times 
+        
+    prediction = model.predict(testVal1)
     
-    alert(prediction);
+    alert(prediction); // 0.9x, 0.0x, 0.0x 
+
+   
+
+    console.log("testVal is Versicolor...")     
+        
+    // Versicolor
+    // const testVal = tf.tensor2d([6.4, 3.2, 4.5, 1.5], [1, 4]);   
+        
+    // constant cannot be reassinged !!! 
+        
+    const testVal2 = tf.tensor2d([6.4, 3.2, 4.5, 1.5], [1, 4]);
+       
+    prediction = model.predict(testVal2)
+
+    alert(prediction); // strange 0 1 0 -- 0.0x, 0.0x, 0.9x? as below
+
+    
+    console.log("testVal is Virginica...")     
+        
+    // Setosa
+    
+    const testVal3 = tf.tensor2d([5.8, 2.7, 5.1, 1.9], [1, 4]);
+        
+    prediction = model.predict(testVal3)
+    
+    alert(prediction); // still 0 1 0 -- 0.0x, 0.9x, 0.0x? as below
+    
+    console.log("testVal is Virginica as last", 
+            // undefined testVal[1,1], 
+            // undefined, prediction[0],       
+            "testVal1 obj:\n",
+                testVal1,
+            "prediction obj:\n",
+            prediction)
+    
     }
     
     run();

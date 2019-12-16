@@ -53,7 +53,7 @@
 
         await 
         model.fitDataset(convertedData, 
-            { epochs: 100,
+            { epochs: 100, //100
               callbacks:{
                   onEpochEnd: async(epoch, logs) =>{
                       console.log("E: " 
@@ -76,7 +76,7 @@
     // Versicolor
     // const testVal = tf.tensor2d([6.4, 3.2, 4.5, 1.5], [1, 4]); // row 53 6.4,3.2,4.5,1.5,versicolor
    
-    console.log("testVal is Setosa 4.4...")     
+    console.log("\nl\nl testVal is Setosa 4.4...")     
         
     // Setosa
     // const testVal = tf.tensor2d([4.4, 2.9, 1.4, 0.2], [1, 4]);
@@ -89,11 +89,13 @@
         
     prediction = model.predict(testVal100)
     
-    alert(prediction); // 0.9x, 0.0x, 0.0x 
+    //alert(prediction); // 0.9x, 0.0x, 0.0x 
+        
+    console.log(prediction.print());
 
    
     
-    console.log("testVal is Virginica...")     
+    console.log("\nl\nl testVal is Virginica...")     
         
     // Setosa
     
@@ -101,10 +103,11 @@
         
     prediction = model.predict(testVal010)
     
-    alert(prediction); // still 0 1 0 -- 0.0x, 0.9x, 0.0x? as below
+    //alert(prediction); // still 0 1 0 -- 0.0x, 0.9x, 0.0x? as below
     
+    console.log(prediction.print());
    
-    console.log("testVal is Versicolor 6.4 ... should be last 1 BUT NOT ....")     
+    console.log("\nl\nl testVal is Versicolor 6.4 ... should be last 1 BUT NOT ....")     
         
     // Versicolor
     // const testVal = tf.tensor2d([6.4, 3.2, 4.5, 1.5], [1, 4]);   
@@ -115,19 +118,21 @@
        
     prediction = model.predict(testVal001a)
 
-    alert(prediction); // strange 0 1 0 -- 0.0x, 0.0x, 0.9x? as below
+    //alert(prediction); // strange 0 1 0 -- 0.0x, 0.0x, 0.9x? as below
 
+    console.log(prediction.print());
     
     // try row row 87 6,3.4,4.5,1.6,versicolor
 
-    console.log("testVal is Versicolor 6.4 ... should be last 1 BUT ALSO ALSO ALSO NOT ....")     
+    console.log("\nl\nl testVal is Versicolor 6.4 ... should be last 1 BUT ALSO ALSO ALSO NOT ....")     
     
         
     const testVal001b = tf.tensor2d([6.0, 3.4, 4.5, 1.6], [1, 4]);
        
     prediction = model.predict(testVal001b)
 
-    alert(prediction); // not sure now ???
+    //alert(prediction); // not sure now ???
+    console.log(prediction.print());
 
      // console.log("testVal is Virginica as last",      "testVal1 obj:\n",testVal1, "prediction obj:\n", prediction)
             // undefined testVal[1,1], 
@@ -135,24 +140,72 @@
     
     // try row 95 5,2.3,3.3,1,versicolor
     
-    console.log("testVal is Versicolor row 95 5.2 ... should be last 1 BUT ALSO ALSO ALSO NOT ....")     
+    console.log("\nl\nl testVal is Versicolor row 95 5.2 ... should be last 1 BUT ALSO ALSO ALSO NOT ....")     
     
         
     const testVal001c = tf.tensor2d([5.2, 2.3, 3.3, 3.1], [1, 4]);
        
-    prediction = model.predict(testVal001c)
+    //prediction = model.predict(testVal001c)
+    
+    //alert(prediction); // [[0.0x, 0.9x, 0.0x],]
 
-    alert(prediction); // not sure now ???
+    //alert(prediction[0]); // undefined
 
+    //alert(typeof prediction); // object
 
-    }
+    //alert(toString(prediction)); // object undefined
+
+    //alert(JSON.stringify(prediction)); // object printed but only the shape etc. 
+
+    //alert(toString(prediction.print())); // object undefined
+
+        
+    //alert(prediction); // not sure now ???
+    //console.log(prediction);
+    console.log(prediction.print());
+    //console.log("tried the array within array format")
+    //console.log(prediction[[0]]); //undefined
+    //console.log(prediction[[1]]); //undefined
+    //console.log("see any difference")
+    //console.log(model.predict(testVal001c))
+    //console.log("compare this the predict does not generate simple array but somehow if alert it can be displayed propertly")
+    var lineChartData = [{
+            string: "abc",
+            value: 1234
+        },{
+            date: new Date(2011, 10, 2),
+            value: 2011102
+        }, {
+            date: new Date(2012, 10, 25),
+            value: 20121025
+        }, {
+            date: new Date(2013, 10, 26),
+            value: 20131026,
+            customBullet: "images/myiris.png"
+        }];
+        
+    //console.log(lineChartData) 
+        
+//   model.predict(testVal001c).then(predictions => {
+//       console.log(predictions);
+//       for(i=0; i<7; i++){
+//           if(predictions[i].results[0].match){
+//               console.log(predictions[i].label + 
+//                           " was found with probability of " + 
+//                           predictions[i].results[0].probabilities[1]);       
+//       
+//            }  
+//        }
+//    });
+        
+
     
          // console.log("testVal is Virginica as last",      "testVal1 obj:\n",testVal1, "prediction obj:\n", prediction)
             // undefined testVal[1,1], 
             // undefined, prediction[0], 
     
     
-    
+    }
     run();
 </script>   
 <body>
